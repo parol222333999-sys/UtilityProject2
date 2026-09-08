@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.22.1)
+project("utility_core")
+
+add_library(utility_core SHARED
+    main.cpp
+)
+
+# Подключаем Android log, чтобы видеть логи в Logcat
+find_library(log-lib log)
+find_library(gles-lib GLESv3)
+
+target_link_libraries(utility_core
+    ${log-lib}
+    ${gles-lib}
+)
+
